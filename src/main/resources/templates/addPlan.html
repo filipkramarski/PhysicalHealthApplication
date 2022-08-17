@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-header">
+        <p class="h4 mb-2 text-center">Add Plan</p>
+    </div>
+    <div class="card-body">
+        <form action="/plan/add" method="POST" enctype="multipart/form-data">
+
+            <!-- Name -->
+            <input type="text" name="pname" id="name" class="form-control mb-4"
+                   placeholder="Plan Name">
+
+            <!-- Days -->
+            <input type="text" name="days" id="days" class="form-control mb-4"
+                   placeholder="Plan Days">
+            <!-- Time -->
+            <input type="text" name="time" id="time" class="form-control mb-4"
+                   placeholder="Time Plan">
+            <!-- Category -->
+            <textarea class="form-control mb-4" id="category" name="category"
+                      placeholder="Plan Category">Product Category
+                                 </textarea>
+            <div class="custom-file mb-4">
+                <input type="file" name="file" class="custom-file-input"
+                       id="customFile"> <label class="custom-file-label"
+                                               for="customFile">Product Image</label>
+            </div>
+            <!-- Sign in button -->
+            <button class="btn btn-info btn-block" type="submit">add</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container mb-4">
+<div class="row">
+    <div class="col-md-3 m-5"th:each="p : ${plan}">
+        <div class="card border-0">
+            <div class="card-body">
+                <th scope="row">
+                    <img class="rounded-sm" alt="" th:src="*{'data:image/jpeg;base64,'+{p.image}}" style="width: 190px;height: 120px; box-shadow: #5c636a">
+                </th>
+                <!--<td><h3 class="card-title" th:text="${p.getPlanName()}">Card title</h3></td>
+                <td><h4 class="card-text" th:text="${p.getCategory()}" ></h4></td>-->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
