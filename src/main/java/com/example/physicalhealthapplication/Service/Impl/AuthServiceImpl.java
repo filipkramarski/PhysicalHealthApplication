@@ -24,4 +24,9 @@ public class AuthServiceImpl implements AuthService {
         return userRepository.findByUsernameAndPassword(username,
                 password).orElseThrow(InvalidUserCredentialsException::new);
     }
+
+    @Override
+    public User findUser (String username) {
+        return userRepository.findByUsername(username).orElseThrow(InvalidUserCredentialsException::new);
+    }
 }
