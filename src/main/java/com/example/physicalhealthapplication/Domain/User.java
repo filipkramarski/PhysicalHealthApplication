@@ -32,6 +32,9 @@ public class User implements UserDetails {
 
     private String favoriteActivity;
 
+    @OneToMany(mappedBy = "user")
+    private Collection<Post> posts;
+
     public User (String username, String password, String name, String surname, Integer height, Integer weight,
                  Integer age, String favoriteActivity, Role role) {
         this.username = username;

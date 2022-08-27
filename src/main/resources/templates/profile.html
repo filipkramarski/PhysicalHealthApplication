@@ -46,12 +46,42 @@
         background-color: #f1f1f1;
         height: 105px;
     }
-
+    th {
+        background-color: #04AA6D;
+        color: forestgreen;
+    }
+    img {
+        margin-left: 60px;
+    }
+    .container-header{
+        display: flex;
+    }
+    h4{
+        margin-top: 10px;
+    }
+    .fa-brands:hover{
+        color:red !important;
+    }
+    .fa-brands:hover{
+        color:red !important;
+    }
+     .fa-caret-left:hover{
+        color:red !important;
+    }
 
 </style>
 <body>
 <div class="container mb-4" th:each="profile : ${userProfile}">
     <hr>
+    <div class="container-header">
+
+        <tr>
+            <td><a href="/home"><i class="fa-solid fa-caret-left fa-3x"></i></a></td>
+                <td><h4>MY PROFILE</h4></td>
+        </tr>
+    </div>
+    <hr>
+    <div class="container mb-4">
 <div class="row">
     <div class="column">
         <div class="card">
@@ -97,7 +127,7 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th scope="col">Height</th>
+                        <th  scope="col">Height</th>
                         <th scope="col">Weight</th>
                         <th scope="col">Age</th>
                     </tr>
@@ -119,40 +149,8 @@
             <td class="card-text" th:text="${profile.getFavoriteActivity()}" ></td>
         </div>
     </div>
+    </div>
 </div>
 </div>
-    <!--<div class="container mb-4">
-        <div class="row">
-            <div class="col"th:each="profile : ${userProfile}">
-                    <div class="card mb-2 border-0">
-                        <tr><td><img th:src="@{/images/profile.jpg}" height="150" width="150"/></td></tr>
-                        <tr>
-                            <div class="title">
-                                <td th:text="${profile.getName()}"></td>
-                                <td th:text="${profile.getSurname()}"></td>
-                            </div>
-                        </tr>
-                    </div>
-                <div class="card mb-2 border-0">
-                    <tr><td>Hi There!</td></tr>
-                    <tr>
-                        <div class="title">
-                            <td><i class="fa-solid fa-house">Berovo</i></td>
-                            <td><i class="fa-brands fa-instagram"></i><i class="fa-brands fa-facebook-f"></i><i class="fa-brands fa-snapchat"></i></td>
-                        </div>
-                    </tr>
-                </div>
-        <hr>
-                    <div>
-                        <td><h6 class="card-text" th:text="${profile.getHeight()}" ></td>
-                        <td><h6 class="card-text" th:text="${profile.getWeight()}" ></td>
-                        <td><h6 class="card-text" th:text="${profile.getAge()}" ></td>
-                        <td class="card-text" th:text="${profile.getFavoriteActivity()}" ></td>
-                    </div>
-                </div>
-            </div>
-
-        </div>
--->
 </body>
 </html>
