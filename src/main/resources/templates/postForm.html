@@ -1,12 +1,27 @@
-<!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <body>
-
-
-
+<style>
+    .container-header{
+        display: flex;
+    }
+    h4{
+        font-size: 2.5rem;
+    }
+    .fa-caret-left:hover{
+        color:red !important;
+    }
+</style>
 <div class="container">
+    <hr>
+    <div class="container-header">
+        <tr>
+            <td><a href="/home"><i class="fa-solid fa-caret-left fa-3x"></i></a></td>
+            <td><h4>CREATE BLOG POST</h4></td>
+        </tr>
+    </div>
+    <hr>
+    <div class="card-header">
+        <p class="h4 mb-2 text-center">POST FORM</p>
+    </div>
     <form action="#"
           th:action="@{'/createNewPost'}"
           th:object="${post}"
@@ -25,16 +40,13 @@
             </label>
         </div>
         <div class="float-left">
-            <button class="green-btn" type="submit">Send</button>
+            <button class="btn btn-primary" type="submit">POST</button>
         </div>
     </form>
     <div class="float-right" th:if="${post.id}">
         <a th:href="@{'/deletePost/{id}'(id=${post.id})}">
-            <button class="green-btn red-btn" type="button">Delete Post</button>
+            <button type="button" class="btn btn-primary">DELETE</button>
         </a>
     </div>
 </div>
-
-
 </body>
-</html>

@@ -51,29 +51,26 @@
         display: flex;
     }
     h4{
-        margin-top: 10px;
+        font-size: 2.5rem;
     }
     .fa-caret-left:hover{
         color:red !important;
     }
     h5{
-        margin-top: -3px;
-        margin-left: 5px;
+        margin-top: -0.3rem;
+        margin-left: 0.5rem;
     }
-
 </style>
 <body>
-
-
 <div class="container">
-        <hr>
-        <div class="container-header">
-            <tr>
-                <td><a href="/home"><i class="fa-solid fa-caret-left fa-3x"></i></a></td>
-                <td><h4>HOME</h4></td>
-            </tr>
-        </div>
-        <hr>
+    <hr>
+    <div class="container-header">
+        <tr>
+            <td><a href="/home"><i class="fa-solid fa-caret-left fa-3x"></i></a></td>
+            <td><h4>HOME</h4></td>
+        </tr>
+    </div>
+    <hr>
     <div class="container-header">
         <tr>
             <td><i class="fa-solid fa-circle"></i></td>
@@ -81,19 +78,28 @@
         </tr>
     </div>
     <!--<div th:replace="/fragments/posts :: posts(posts=${posts})"></div>-->
-    <div class="container mb-4" >
+    <div class="container mb-4">
         <div class="row">
-        <div class="col-md-3 m-5"th:each="p : ${plan}">
-            <div class="card border-0">
-                <div class="card-body">
-                    <th scope="row">
-                        <img class="rounded-sm" alt="" th:src="*{'data:image/jpeg;base64,'+{p.image}}" style="width: 190px;height: 120px; box-shadow: #5c636a">
-                    </th>
-                    <!--<td><h3 class="card-title" th:text="${p.getPlanName()}">Card title</h3></td>
-                    <td><h4 class="card-text" th:text="${p.getCategory()}" ></h4></td>-->
+            <div class="col-md-3 m-5" th:each="p : ${plan}">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <th scope="row">
+                            <img class="rounded-sm" alt="" th:src="*{'data:image/jpeg;base64,'+{p.image}}"
+                                 style="width: 190px;height: 120px; box-shadow: #5c636a"><br>
+                        <td th:text="${p.getCategory()}"></td></br>
+                        <td><form th:action="@{'/favorite/add/{id}' (id=${p.getId()})}" th:method="POST">
+                            <button type="submit" class="btn btn-default bg-primary">ADD TO FAVORITES</button>
+                        </form>
+
+                        </th>
+                        <!--<td><h3 class="card-title" th:text="${p.getPlanName()}">Card title</h3></td>
+                        <td><h4 class="card-text" th:text="${p.getCategory()}" ></h4></td>-->
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="">
+            <a type="button" class="btn btn-primary" href="plan/addPlan">ADD NEW PLAN</a>
         </div>
     </div>
     <hr>
@@ -103,23 +109,28 @@
             <td><h5>BLOG POSTS</h5></td>
         </tr>
     </div>
-    <div class="container mb-4" >
-        <div class="post" th:each="post : ${posts}">
-                <div class="row">
-                <div class="col-md-3 m-5">
+    <div class="container mb-4">
+            <div class="row">
+                <div class="col-md-3 m-5" th:each="post : ${posts}">
                     <div class="posts_wrapper">
                         <div class="card border-0">
                             <div class="card-body">
-                <h3><a th:href="@{'/post/' + ${post.id}}" th:text="${post.title}">Title</a></h3>
-                <h5 th:text="'Published on ' + ${#dates.format(post.creationDate, 'yyyy MMMM dd')} + ' by ' + ${post.user.username}">Creation date and by whom</h5>
-                <p th:text="${post.body}">body text</p>
+                                <th scope="row">
+                                    <h3><a th:href="@{'/post/' + ${post.id}}" th:text="${post.title}">Title</a></h3>
+                                    <p th:text="'Published on ' + ${#dates.format(post.creationDate, 'yyyy MMMM dd')} + ' by ' + ${post.user.username}">
+                                        Creation date and by whom</p>
+                                    <h5 th:text="${post.body}">body text</h5>
+                                </th>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        <div class="">
+            <a type="button" class="btn btn-primary" href="/createNewPost">ADD NEW POST</a>
+        </div>
         </div>
     </div>
-        </div>
-            </div>
-        </div>
-        </div>
-    </div>
+</div>
 </body>
 </html>

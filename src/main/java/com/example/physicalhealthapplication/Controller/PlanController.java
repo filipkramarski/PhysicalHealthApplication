@@ -55,7 +55,7 @@ public class PlanController {
                               @RequestParam("days") Integer days,
                               @RequestParam("time") Time time) {
         this.planService.saveToDataBase(file, name, category,days,time);
-        return "redirect:/plan";
+        return "redirect:/home";
     }
 
 

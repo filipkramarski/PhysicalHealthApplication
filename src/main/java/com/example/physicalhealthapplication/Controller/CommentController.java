@@ -54,8 +54,9 @@ public class CommentController {
             comment.setPost(postOptional.get());
             comment.setUser(optionalBlogUser.get());
             model.addAttribute("comment", comment);
+            model.addAttribute("bodyContent", "commentForm");
             System.err.println("GET comment/{id}: " + comment + "/" + id); // for testing debugging purposes
-            return "commentForm";
+            return "master-template";
         } else {
             System.err.println("Could not find a post by id: " + id + " or user by logged in username: " + authUsername); // for testing debugging purposes
             return "error";

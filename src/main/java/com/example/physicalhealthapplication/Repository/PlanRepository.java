@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface PlanRepository extends JpaRepository<Plan, String>{
-    //Optional<Plan> findByName (String name);
+public interface PlanRepository extends JpaRepository<Plan, Long>{
+    Optional<Plan> findPlanByPlanName (String name);
 
 }

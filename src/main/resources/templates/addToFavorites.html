@@ -1,0 +1,48 @@
+<style>
+    .container-header{
+        display: flex;
+    }
+    h4{
+        font-size: 2.5rem;
+    }
+    .fa-caret-left:hover{
+        color:red !important;
+    }
+</style>
+<section class="jumbotron text-center">
+    <div class="container">
+        <h3 class="jumbotron-heading">FAVORITE PLANS FOR USER:
+            <th:block th:if="${#request.getRemoteUser()!=null}"
+                      th:text="${#request.getRemoteUser()}"/>
+        </h3>
+    </div>
+</section>
+<div th:if="${hasError}">
+    <h5 class="text-center text danger" th:text="${error}"></h5>
+</div>
+<div class="container">
+<div class="container-header">
+<hr>
+    <tr>
+        <td><a href="/home"><i class="fa-solid fa-caret-left fa-3x"></i></a></td>
+        <td><h4>FAVORITE PLANS</h4></td>
+    </tr>
+    <hr>
+</div>
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-md-3 m-5" th:each="p : ${plan}">
+            <div class="card border-0">
+                <div class="card-body">
+                    <th scope="row">
+                        <img class="rounded-sm" alt="" th:src="*{'data:image/jpeg;base64,'+{p.image}}"
+                             style="width: 190px;height: 120px; box-shadow: #5c636a"><br>
+                    <td th:text="${p.getCategory()}"></td>
+                    </th>
+                    <!--<td><h3 class="card-title" th:text="${p.getPlanName()}">Card title</h3></td>
+                    <td><h4 class="card-text" th:text="${p.getCategory()}" ></h4></td>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

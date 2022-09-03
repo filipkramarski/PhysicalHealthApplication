@@ -3,17 +3,34 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <body>
-
-
+<style>
+    .container-header{
+        display: flex;
+    }
+    h4{
+        font-size: 2.5rem;
+    }
+    .fa-caret-left:hover{
+        color:red !important;
+    }
+</style>
 <div class="container">
+    <hr>
+    <div class="container-header">
+        <tr>
+            <td><a href="/home"><i class="fa-solid fa-caret-left fa-3x"></i></a></td>
+            <td><h4>BLOG POST</h4></td>
+        </tr>
+    </div>
+    <hr>
     <div class="post">
         <h2 th:text="${post.title}">Title</h2>
         <h5 th:text="'Published on ' + ${#dates.format(post.creationDate, 'yyyy MMMM dd')} + ' by ' + ${post.user.username}">Creation date and by whom</h5>
-        <div class="img">Image</div>
-        <p th:text="${post.body}">body text</p>
+        <!--<div class="img">Image</div>-->
+        <h3 th:text="${post.body}">body text</h3>
         <div class="align-right" sec:authorize="isAuthenticated()" th:if="${isOwner}">
             <a th:href="@{'/editPost/{id}'(id=${post.id})}">
-                <button class="green-btn blue-btn" type="button">Edit</button>
+                <button type="button" class="btn btn-primary">EDIT</button>
             </a>
         </div>
     </div>
@@ -26,11 +43,9 @@
     </div>
     <div class="align-center">
         <a th:href="@{'/comment/{id}'(id=${post.id})}">
-            <button class="green-btn" type="button">Comment Post</button>
+            <button class="btn btn-primary" type="button">ADD COMMENT</button>
         </a>
     </div>
 </div>
-
-
 </body>
 </html>

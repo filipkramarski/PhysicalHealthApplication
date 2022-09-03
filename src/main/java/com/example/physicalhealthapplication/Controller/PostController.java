@@ -45,7 +45,8 @@ public class PostController {
             if (authUsername.equals(post.getUser().getUsername())) {
                 model.addAttribute("isOwner", true);
             }
-            return "post";
+            model.addAttribute("bodyContent", "post");
+            return "master-template";
         } else {
             return "404";
         }
@@ -65,7 +66,8 @@ public class PostController {
             Post post = new Post();
             post.setUser(optionalBlogUser.get());
             model.addAttribute("post", post);
-            return "postForm";
+            model.addAttribute("bodyContent", "postForm");
+            return "master-template";
         } else {
             return "error";
         }
@@ -102,8 +104,9 @@ public class PostController {
             // Check if current logged in user is owner
             if (authUsername.equals(post.getUser().getUsername())) {
                 model.addAttribute("post", post);
+                model.addAttribute("bodyContent", "postForm");
                 System.err.println("EDIT post: " + post); // for testing debugging purposes
-                return "postForm";
+                return "master-template";
             } else {
                 System.err.println("Current User has no permissions to edit anything on post by id: " + id); // for testing debugging purposes
                 return "403";

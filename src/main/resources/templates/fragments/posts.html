@@ -6,9 +6,20 @@
   <title>Title</title>
 </head>
 <body>
-
+<style>
+  .fa-caret-left:hover{
+    color:red !important;
+  }
+</style>
 <div th:fragment="posts(posts)">
-
+  <hr>
+  <div class="container-header">
+    <tr>
+      <td><a href="/home"><i class="fa-solid fa-caret-left fa-3x"></i></a></td>
+      <td><h4>BLOG POST</h4></td>
+    </tr>
+  </div>
+  <hr>
   <div class="posts_wrapper">
     <div class="post" th:each="post : ${posts}">
       <h2><a th:href="@{'/post/' + ${post.id}}" th:text="${post.title}">Title</a></h2>
@@ -17,8 +28,6 @@
       <br>
     </div>
   </div>
-
 </div>
-
 </body>
 </html>

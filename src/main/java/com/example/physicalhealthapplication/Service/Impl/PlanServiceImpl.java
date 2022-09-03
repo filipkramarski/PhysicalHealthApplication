@@ -16,7 +16,6 @@ import java.util.Optional;
 @Service
 public class PlanServiceImpl implements PlanService {
 
-
     private final PlanRepository planRepository;
 
     public PlanServiceImpl (PlanRepository planRepository) {
@@ -24,19 +23,25 @@ public class PlanServiceImpl implements PlanService {
     }
 
     @Override
+    public Optional<Plan> findById (Long id) {
+        return this.planRepository.findById(id);
+    }
+
+    @Override
     public List<Plan> findAll () {
         return this.planRepository.findAll();
     }
 
-    /*@Override
-    public Optional<Plan> findByName (String name) {
-        return this.planRepository.findByName(name);
-    }*/
 
     @Override
     public Optional<Plan> save (String name, String category, Integer days, Time time) {
 
         return Optional.of(this.planRepository.save(new Plan(name,category,days,time)));
+    }
+
+    @Override
+    public Optional<Plan> findByName (String name) {
+        return this.planRepository.findPlanByPlanName(name);
     }
 
     @Override

@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
-
-
+<style>
+    .container-header{
+        display: flex;
+    }
+    h4{
+        font-size: 2.5rem;
+    }
+    .fa-caret-left:hover{
+        color:red !important;
+    }
+</style>
 <div class="container">
+    <hr>
+    <div class="container-header">
 
+        <tr>
+            <td><a href="/home"><i class="fa-solid fa-caret-left fa-3x"></i></a></td>
+            <td><h4>ADD COMMENT</h4></td>
+        </tr>
+    </div>
+    <hr>
     <h2>Write new comment</h2>
 
     <form action="#"
@@ -16,7 +31,7 @@
             <textarea th:field="*{body}" placeholder="Write something valuable"></textarea>
         </label>
         <div>
-            <button class="green-btn" type="submit">Send</button>
+            <button class="btn btn-primary" type="submit">COMMENT</button>
         </div>
     </form>
 </div>
