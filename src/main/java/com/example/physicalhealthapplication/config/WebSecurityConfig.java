@@ -43,7 +43,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .deleteCookies("JSESSIONID")
                 .logoutSuccessUrl("/login")
                 .and()
-                .exceptionHandling().accessDeniedPage("/access_denied");
+                .exceptionHandling().accessDeniedPage("/access_denied")
+                .and().headers().frameOptions().disable();
     }
 
     @Override
