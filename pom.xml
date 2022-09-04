@@ -15,7 +15,7 @@
     <name>eShop</name>
     <description>eShop</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
         <repackage.classifier/>
         <spring-native.version>0.11.0</spring-native.version>
     </properties>
