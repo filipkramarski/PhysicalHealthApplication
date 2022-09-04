@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.example</groupId>
-    <artifactId>eShop</artifactId>
+    <artifactId>PhysicalHealth</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>eShop</name>
     <description>eShop</description>
@@ -32,18 +32,6 @@
             <groupId>org.springframework.experimental</groupId>
             <artifactId>spring-native</artifactId>
             <version>${spring-native.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -67,11 +55,6 @@
             <artifactId>thymeleaf-extras-springsecurity5</artifactId>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
         </dependency>
@@ -82,10 +65,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-test</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
@@ -158,13 +137,6 @@
                 <repackage.classifier>exec</repackage.classifier>
                 <native-buildtools.version>0.9.8</native-buildtools.version>
             </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>org.junit.platform</groupId>
-                    <artifactId>junit-platform-launcher</artifactId>
-                    <scope>test</scope>
-                </dependency>
-            </dependencies>
             <build>
                 <plugins>
                             <plugin>
