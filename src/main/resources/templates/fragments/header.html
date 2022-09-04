@@ -1,12 +1,15 @@
 
 <div class="header">
-        <img th:src="@{/images/phyh.jpg}" class="responsive"/>
+        <img th:src="@{/resources/images/phyh.jpg}" class="responsive"/>
         <a href="/home" class="logo">HOME</a>
         <a href="/profile" class="logo">PROFILE</a>
         <a href="/favorite" class="logo">FAVORITE PLANS</a>
     <div class="header-right">
         <a href="/home"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a>
         <a href="/profile"><i class="fa-solid fa-user fa-2x"></i></a>
+        <a class="btn btn-light btn-sm ml-3" href="/logout">
+            <i class="fa-sharp fa-solid fa-right-from-bracket"></i> Logout
+        </a>
     </div>
 </div>
 <style>

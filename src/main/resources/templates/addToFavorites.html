@@ -1,4 +1,50 @@
 <style>
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Float four columns side by side */
+    .column {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+    }
+
+    /* Remove extra left and right margins, due to padding in columns */
+    .row {margin: 0 -5px; margin: inherit}
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Style the counter cards */
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+        padding: 16px;
+        text-align: center;
+        background-color: #f1f1f1;
+        height: 230px;
+        weight: 260px
+    }
+    .card-sec{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+        padding: 16px;
+        text-align: center;
+        background-color: #f1f1f1;
+        height: 105px;
+    }
+    th {
+        background-color: #04AA6D;
+        color: forestgreen;
+    }
     .container-header{
         display: flex;
     }
@@ -11,9 +57,9 @@
 </style>
 <section class="jumbotron text-center">
     <div class="container">
-        <h3 class="jumbotron-heading">FAVORITE PLANS FOR USER:
-            <th:block th:if="${#request.getRemoteUser()!=null}"
-                      th:text="${#request.getRemoteUser()}"/>
+        <h3 class="jumbotron-heading">MY FAVORITE PLANS
+<!--            <th:block th:if="${#request.getRemoteUser()!=null}"-->
+<!--                      th:text="${#request.getRemoteUser()}"/>-->
         </h3>
     </div>
 </section>
@@ -21,15 +67,16 @@
     <h5 class="text-center text danger" th:text="${error}"></h5>
 </div>
 <div class="container">
+    <hr>
 <div class="container-header">
-<hr>
     <tr>
         <td><a href="/home"><i class="fa-solid fa-caret-left fa-3x"></i></a></td>
         <td><h4>FAVORITE PLANS</h4></td>
     </tr>
-    <hr>
 </div>
-<div class="container mb-4">
+    <hr>
+
+    <div class="container mb-4">
     <div class="row">
         <div class="col-md-3 m-5" th:each="p : ${plan}">
             <div class="card border-0">
